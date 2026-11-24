@@ -1,0 +1,21 @@
+# Android
+*.iml
+.gradle/
+local.properties
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+# KekeNow: the .kiro directory MUST be committed — the Kiroween judges
+# check it for specs, hooks and steering. Never ignore it.
+!.kiro/
+!.kiro/**
+
+# Logo working files (intermediate image-generation outputs).
+# The approved logo already lives in app/src/main/res/ (mipmap icons +
+# drawable/kekenow_logo.png); these source files stay local only.
+media-generation-*

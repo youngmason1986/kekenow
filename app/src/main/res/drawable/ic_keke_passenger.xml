@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Person -->
+    <path android:fillColor="#1B8A3A"
+        android:pathData="M24,8 m-5,0 a5,5 0,1 1,10 0 a5,5 0,1 1,-10 0" />
+    <path android:fillColor="#1B8A3A"
+        android:pathData="M16,28 Q16,18 24,18 Q32,18 32,28 L32,32 L16,32 Z" />
+    <!-- Keke -->
+    <path android:fillColor="#F5C518"
+        android:pathData="M6,38 L6,32 Q6,27 11,27 L40,27 Q44,27 44,32 L44,38 Z" />
+    <path android:fillColor="#1A1A1A"
+        android:pathData="M12,38 m-4,0 a4,4 0,1 1,8 0 a4,4 0,1 1,-8 0" />
+    <path android:fillColor="#1A1A1A"
+        android:pathData="M36,38 m-4,0 a4,4 0,1 1,8 0 a4,4 0,1 1,-8 0" />
+</vector>

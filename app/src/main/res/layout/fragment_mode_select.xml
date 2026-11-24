@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@color/surface_light">
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/kekenow_logo"
+        android:contentDescription="@string/app_name"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_mode_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/keke_green"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_mode_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mode_subtitle"
+        android:textSize="16sp"
+        android:textColor="@color/text_secondary"
+        android:layout_marginBottom="40dp"/>
+
+    <LinearLayout
+        android:id="@+id/card_passenger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/bg_card_green"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_keke_passenger"
+            android:contentDescription="@string/mode_passenger"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mode_passenger"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_on_green"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mode_passenger_sub"
+            android:textSize="14sp"
+            android:textColor="@color/text_on_green"
+            android:alpha="0.85"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/card_rider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/bg_card_yellow"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_keke_rider"
+            android:contentDescription="@string/mode_rider"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mode_rider"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_on_yellow"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mode_rider_sub"
+            android:textSize="14sp"
+            android:textColor="@color/text_on_yellow"
+            android:alpha="0.85"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- Signed-in profile row (hidden on first launch) -->
+    <LinearLayout
+        android:id="@+id/layout_profile_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_card"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_profile_photo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_camera"
+            android:contentDescription="@string/profile_photo_hint"/>
+
+        <TextView
+            android:id="@+id/tv_profile_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"/>
+
+        <Button
+            android:id="@+id/btn_edit_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/profile_edit"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_button_grey"
+            android:textColor="@color/text_primary"/>
+
+        <Button
+            android:id="@+id/btn_sign_out"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/auth_sign_out"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_button_grey"
+            android:textColor="@color/text_primary"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+</LinearLayout>

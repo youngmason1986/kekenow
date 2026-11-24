@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>KekeNow Map</title>
+
+  <!-- Leaflet CSS from CDN; graceful degradation if offline (tiles won't load but shell works) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="anonymous"/>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body, #map { width: 100%; height: 100%; }
+    body { background: #e8f4e8; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <!-- Leaflet JS from CDN -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLs="
+          crossorigin="anonymous"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // Default centre: Asaba, Delta State, Nigeria
+    var DEFAULT_LAT = 6.1944;
+    var DEFAULT_LON = 6.7357;
+    var DEFAULT_ZOOM = 14;
+
+    var map = L.map('map', {
+      center: [DEFAULT_LAT, DEFAULT_LON],
+      zoom: DEFAULT_ZOOM,
+      zoomControl: true
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Layers we manage
+    var routeLayer   = null;
+    var originMarker = null;
+    var destMarker   = null;
+
+    // Custom marker icons
+    function makeIcon(color) {
+      return L.divIcon({
+        className: '',
+        html: '<div style="'
+          + 'width:18px;height:18px;border-radius:50%;'
+          + 'background:' + color + ';'
+          + 'border:3px solid #fff;'
+          + 'box-shadow:0 2px 6px rgba(0,0,0,0.5);'
+          + '"></div>',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9]
+      });
+    }
+
+    var iconOrigin = makeIcon('#1B8A3A');
+    var iconDest   = makeIcon('#E53935');
+
+    // ------------------------------------------------------------------ //
+    // Public API called by Java via evaluateJavascript()
+    // ------------------------------------------------------------------ //
+
+    /**
+     * showRoute(geoJsonObject_or_null, originLat, originLon, destLat, destLon)
+     *
+     * Clears existing route layers and draws:
+     *   - A blue polyline for the route (if geoJson is provided)
+     *   - A green marker at origin
+     *   - A red marker at destination
+     * Then fits the map bounds to show everything.
+     */
+    window.showRoute = function (geoJson, oLat, oLon, dLat, dLon) {
+      try {
+        clearLayers();
+
+        var bounds = [];
+
+        // Origin marker
+        if (oLat !== undefined && oLon !== undefined) {
+          originMarker = L.marker([oLat, oLon], { icon: iconOrigin })
+            .bindPopup('Pickup')
+            .addTo(map);
+          bounds.push([oLat, oLon]);
+        }
+
+        // Destination marker
+        if (dLat !== undefined && dLon !== undefined) {
+          destMarker = L.marker([dLat, dLon], { icon: iconDest })
+            .bindPopup('Destination')
+            .addTo(map);
+          bounds.push([dLat, dLon]);
+        }
+
+        // Route polyline
+        if (geoJson && geoJson !== 'null') {
+          var geomObj = (typeof geoJson === 'string') ? JSON.parse(geoJson) : geoJson;
+          var latlngs = coordsToLatLngs(geomObj.coordinates);
+          routeLayer = L.polyline(latlngs, {
+            color: '#1565C0',
+            weight: 5,
+            opacity: 0.85
+          }).addTo(map);
+
+          // Add all route points to bounds
+          latlngs.forEach(function (p) { bounds.push(p); });
+        }
+
+        // Fit map
+        if (bounds.length > 0) {
+          if (bounds.length === 1) {
+            map.setView(bounds[0], 15);
+          } else {
+            map.fitBounds(bounds, { padding: [32, 32] });
+          }
+        }
+      } catch (e) {
+        logError('showRoute error: ' + e.message);
+      }
+    };
+
+    /** Remove all route/marker layers, leaving only the tile layer. */
+    window.clearMap = function () {
+      clearLayers();
+      map.setView([DEFAULT_LAT, DEFAULT_LON], DEFAULT_ZOOM);
+    };
+
+    // ------------------------------------------------------------------ //
+    // Helpers
+    // ------------------------------------------------------------------ //
+
+    function clearLayers() {
+      if (routeLayer)   { map.removeLayer(routeLayer);   routeLayer   = null; }
+      if (originMarker) { map.removeLayer(originMarker); originMarker = null; }
+      if (destMarker)   { map.removeLayer(destMarker);   destMarker   = null; }
+    }
+
+    // GeoJSON LineString coordinates are [lon, lat] — Leaflet wants [lat, lon]
+    function coordsToLatLngs(coords) {
+      return coords.map(function (c) { return [c[1], c[0]]; });
+    }
+
+    function logError(msg) {
+      if (window.Android && Android.logError) {
+        Android.logError(msg);
+      } else {
+        console.error(msg);
+      }
+    }
+
+    // Notify Java that the map is ready
+    if (window.Android && Android.onMapReady) {
+      Android.onMapReady();
+    }
+
+  }());
+  </script>
+</body>
+</html>

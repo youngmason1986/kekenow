@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Steering wheel -->
+    <path android:fillColor="#1B8A3A"
+        android:strokeColor="#1B8A3A"
+        android:strokeWidth="2"
+        android:pathData="M24,10 m-7,0 a7,7 0,1 1,14 0 a7,7 0,1 1,-14 0" />
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M24,10 m-4,0 a4,4 0,1 1,8 0 a4,4 0,1 1,-8 0" />
+    <!-- Body driving -->
+    <path android:fillColor="#1B8A3A"
+        android:pathData="M18,30 Q18,22 24,22 Q32,22 32,30 L34,38 L14,38 Z" />
+    <!-- Helmet -->
+    <path android:fillColor="#F5C518"
+        android:pathData="M19,13 Q19,8 24,8 Q29,8 29,13 L29,16 Q24,18 19,16 Z" />
+    <!-- Keke outline -->
+    <path android:fillColor="#F5C518"
+        android:pathData="M4,42 L4,36 Q4,32 9,32 L42,32 Q46,32 46,36 L46,42 Z" />
+    <path android:fillColor="#1A1A1A"
+        android:pathData="M10,42 m-4,0 a4,4 0,1 1,8 0 a4,4 0,1 1,-8 0" />
+    <path android:fillColor="#1A1A1A"
+        android:pathData="M38,42 m-4,0 a4,4 0,1 1,8 0 a4,4 0,1 1,-8 0" />
+</vector>

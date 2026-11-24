@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="@color/keke_green"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/passenger_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_on_green"/>
+
+            <TextView
+                android:id="@+id/tv_mode_label_passenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mode_passenger"
+                android:textSize="12sp"
+                android:textColor="@color/text_on_green"
+                android:alpha="0.7"
+                android:paddingStart="8dp"
+                android:paddingEnd="4dp"/>
+        </LinearLayout>
+
+        <!-- Offline banner -->
+        <TextView
+            android:id="@+id/tv_offline_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/offline_banner"
+            android:textSize="13sp"
+            android:textColor="@color/text_on_green"
+            android:background="@color/offline_amber"
+            android:padding="8dp"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <!-- Map WebView -->
+        <WebView
+            android:id="@+id/wv_map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Map error -->
+        <TextView
+            android:id="@+id/tv_map_error"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/map_unavailable"
+            android:textSize="16sp"
+            android:textColor="@color/error_red"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <!-- Bottom control panel -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/surface_white"
+            android:elevation="8dp">
+
+            <!-- Destination input row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <EditText
+                    android:id="@+id/et_destination"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/passenger_hint"
+                    android:background="@drawable/bg_input_outline"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:maxLines="1"/>
+
+                <ImageButton
+                    android:id="@+id/fab_mic"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="12dp"
+                    android:contentDescription="@string/passenger_mic_desc"
+                    android:src="@drawable/ic_mic"
+                    android:background="@drawable/bg_fab_circle"
+                    android:scaleType="centerInside"
+                    android:padding="14dp"/>
+            </LinearLayout>
+
+            <!-- Confirm button -->
+            <Button
+                android:id="@+id/btn_confirm_destination"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/passenger_confirm"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_button_green"
+                android:textColor="@color/text_on_green"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"/>
+
+            <!-- Fare card -->
+            <LinearLayout
+                android:id="@+id/card_fare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fare_label"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"/>
+
+                <TextView
+                    android:id="@+id/tv_fare_band"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/keke_green"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_fare_sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fare_disclaimer"
+                    android:textSize="11sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <!-- Request button -->
+            <Button
+                android:id="@+id/btn_request_keke"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="@string/passenger_request"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:background="@drawable/bg_button_yellow"
+                android:textColor="@color/text_on_yellow"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Progress overlay (shown while geocoding / routing) -->
+    <LinearLayout
+        android:id="@+id/layout_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#88000000"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:indeterminateTint="@color/keke_yellow"/>
+
+        <TextView
+            android:id="@+id/tv_progress_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Searching…"
+            android:textSize="16sp"
+            android:textColor="@color/surface_white"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+</FrameLayout>

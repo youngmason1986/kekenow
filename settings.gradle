@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        // Local offline repo (this machine only) — used for offline builds.
+        // Skipped automatically anywhere else (e.g. GitHub Actions runners).
+        if (new File("/home/hatch/workspace/local-maven-repo").exists()) {
+            maven { url = uri("file:///home/hatch/workspace/local-maven-repo") }
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        // Local offline repo (this machine only) — see above.
+        if (new File("/home/hatch/workspace/local-maven-repo").exists()) {
+            maven { url = uri("file:///home/hatch/workspace/local-maven-repo") }
+        }
+    }
+}
+rootProject.name = "kekenow"
+include(":app")

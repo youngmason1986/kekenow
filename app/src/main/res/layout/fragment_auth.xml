@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@color/surface_light">
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/kekenow_logo"
+        android:contentDescription="@string/app_name"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auth_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/keke_green"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auth_subtitle"
+        android:textSize="15sp"
+        android:textColor="@color/text_secondary"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/tv_auth_welcome_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/keke_green"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/et_auth_phone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/auth_phone_hint"
+        android:inputType="phone"
+        android:background="@drawable/bg_input_outline"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btn_auth_continue"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/auth_continue"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_button_green"
+        android:textColor="@color/text_on_green"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auth_hint"
+        android:textSize="13sp"
+        android:textColor="@color/text_secondary"
+        android:gravity="center"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>

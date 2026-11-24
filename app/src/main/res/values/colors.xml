@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand -->
+    <color name="keke_green">#1B8A3A</color>
+    <color name="keke_green_dark">#14612A</color>
+    <color name="keke_yellow">#F5C518</color>
+    <color name="keke_yellow_dark">#D4A500</color>
+
+    <!-- Surface -->
+    <color name="surface_white">#FFFFFF</color>
+    <color name="surface_light">#F4F6F3</color>
+    <color name="surface_card">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#555555</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="text_on_green">#FFFFFF</color>
+    <color name="text_on_yellow">#1A1A1A</color>
+
+    <!-- Status badges -->
+    <color name="status_pending">#E65100</color>
+    <color name="status_accepted">#1565C0</color>
+    <color name="status_completed">#2E7D32</color>
+    <color name="status_declined">#757575</color>
+
+    <!-- Misc -->
+    <color name="divider">#E0E0E0</color>
+    <color name="error_red">#C62828</color>
+    <color name="offline_amber">#FF8F00</color>
+</resources>

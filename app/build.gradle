@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.blackempire.kekenow'
+    compileSdk 36
+    buildToolsVersion "36.1.0"
+
+    defaultConfig {
+        applicationId 'com.blackempire.kekenow'
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName '1.0'
+    }
+
+    // Permanent debug keystore (see AGENTS.md): never rely on Gradle's
+    // auto-generated debug keystore — its signature changes between builds.
+    // On machines without it (e.g. GitHub Actions runners) Gradle falls
+    // back to its auto-generated debug keystore; the keystore file itself
+    // is never committed to the repo.
+    signingConfigs {
+        debug {
+            def ks = file("/home/hatch/workspace/debug.keystore")
+            if (ks.exists()) {
+                storeFile ks
+                storePassword "android"
+                keyAlias "androiddebugkey"
+                keyPassword "android"
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    // Zero external dependencies by design: no dependencies block.
+    // Location = android.location.LocationManager, HTTP = HttpURLConnection,
+    // JSON = org.json (built into Android), map = Leaflet in a WebView
+    // (assets/map.html, Leaflet + OpenStreetMap tiles over the network),
+    // voice = Android SpeechRecognizer + TextToSpeech.
+    // NOTE: this machine builds offline against ~/workspace/local-maven-repo,
+    // which holds no AndroidX/Material/Play-Services artifacts — hence the
+    // framework-only UI (android.app.Activity, android.app.Fragment,
+    // ListView, framework widgets). Do not re-add AndroidX deps.
+}

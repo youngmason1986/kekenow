@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_light">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/keke_yellow"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rider_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_on_yellow"/>
+
+        <TextView
+            android:id="@+id/tv_mode_label_rider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mode_rider"
+            android:textSize="12sp"
+            android:textColor="@color/text_on_yellow"
+            android:alpha="0.7"/>
+    </LinearLayout>
+
+    <!-- Rider profile reminder (shown until the rider identity is complete) -->
+    <LinearLayout
+        android:id="@+id/layout_rider_profile_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="@color/keke_yellow"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rider_profile_hint"
+            android:textSize="14sp"
+            android:textColor="@color/text_on_yellow"/>
+
+        <Button
+            android:id="@+id/btn_complete_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/profile_complete"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_button_green"
+            android:textColor="@color/text_on_green"/>
+    </LinearLayout>
+
+    <!-- Empty state -->
+    <LinearLayout
+        android:id="@+id/layout_empty_jobs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/ic_keke_rider"
+            android:contentDescription=""
+            android:alpha="0.3"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rider_empty"
+            android:textSize="18sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- Job list (ListView: framework-only, no RecyclerView/AndroidX) -->
+    <ListView
+        android:id="@+id/rv_jobs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:divider="@color/divider"
+        android:dividerHeight="1dp"/>
+
+</LinearLayout>

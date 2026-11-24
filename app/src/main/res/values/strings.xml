@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KekeNow</string>
+
+    <!-- Mode Select / role choice -->
+    <string name="mode_title">Welcome to KekeNow</string>
+    <string name="mode_subtitle">Are you a rider or a customer?</string>
+    <string name="mode_passenger">Customer</string>
+    <string name="mode_passenger_sub">Speak your destination, get a fare, ride.</string>
+    <string name="mode_rider">Rider</string>
+    <string name="mode_rider_sub">Drive your keke, receive job requests.</string>
+
+    <!-- Passenger -->
+    <string name="passenger_title">Where to?</string>
+    <string name="passenger_hint">Tap the mic or type your destination</string>
+    <string name="passenger_mic_desc">Speak destination</string>
+    <string name="passenger_confirm">Confirm Destination</string>
+    <string name="passenger_request">Request Keke</string>
+    <string name="passenger_waiting_title">Looking for a keke…</string>
+    <string name="passenger_waiting_body">Nearby riders have been notified. Please wait.</string>
+    <string name="passenger_cancel">Cancel</string>
+    <string name="passenger_no_rider">No rider found. Please try again.</string>
+
+    <!-- Fare card -->
+    <string name="fare_label">Estimated Fare</string>
+    <string name="fare_disclaimer">Fare is an estimate. Agree with your rider before boarding.</string>
+    <string name="fare_approximate">Approximate – routing unavailable</string>
+
+    <!-- Map / route -->
+    <string name="map_unavailable">Map unavailable</string>
+    <string name="offline_banner">Offline – map may be incomplete</string>
+
+    <!-- Voice / errors -->
+    <string name="voice_no_result">Didn\'t catch that – try again</string>
+    <string name="geo_not_found">I could not find that location</string>
+    <string name="geo_no_internet">No internet – check your connection</string>
+    <string name="location_denied_message">Location permission is needed to find nearby keke riders. Open Settings to grant it.</string>
+    <string name="location_open_settings">Open Settings</string>
+
+    <!-- Rider -->
+    <string name="rider_title">Available Jobs</string>
+    <string name="rider_empty">Waiting for jobs…</string>
+    <string name="rider_new_job">New job available</string>
+    <string name="rider_accept">Accept Job</string>
+    <string name="rider_decline">Decline</string>
+    <string name="rider_complete">Complete Job</string>
+    <string name="rider_accepted_speech">Job accepted. Head to pickup.</string>
+    <string name="rider_complete_speech">Job done. Well done!</string>
+
+    <!-- Job detail -->
+    <string name="detail_from">Pickup</string>
+    <string name="detail_to">Destination</string>
+    <string name="detail_distance">Distance</string>
+    <string name="detail_fare">Fare</string>
+    <string name="detail_status">Status</string>
+
+    <!-- Mode switch -->
+    <string name="switch_mode_title">Switch mode?</string>
+    <string name="switch_mode_message">This will return you to the mode selector.</string>
+    <string name="switch_mode_confirm">Switch</string>
+    <string name="switch_mode_cancel">Cancel</string>
+
+    <!-- Status labels -->
+    <string name="status_pending">Pending</string>
+    <string name="status_accepted">Accepted</string>
+    <string name="status_completed">Completed</string>
+    <string name="status_declined">Declined</string>
+
+    <!-- Sign in -->
+    <string name="auth_title">Welcome to KekeNow</string>
+    <string name="auth_subtitle">Sign in with your phone number</string>
+    <string name="auth_phone_hint">Phone number e.g. 0803 123 4567</string>
+    <string name="auth_continue">Continue</string>
+    <string name="auth_hint">Your phone number is your account. No password needed.</string>
+    <string name="auth_welcome_back">Welcome back, %1$s</string>
+    <string name="auth_sign_out">Sign out</string>
+    <string name="auth_need_phone">Enter your phone number first</string>
+
+    <!-- Profile / registration -->
+    <string name="profile_title">Your profile</string>
+    <string name="profile_photo_hint">Tap the photo to add yours</string>
+    <string name="profile_photo_failed">Could not use that photo. Try another one.</string>
+    <string name="profile_name_hint">Your name</string>
+    <string name="profile_phone_hint">Phone number</string>
+    <string name="profile_state_label">State where your keke is registered</string>
+    <string name="profile_plate_hint_default">Plate number e.g. ABC-123-XY</string>
+    <string name="profile_plate_hint">Plate number — e.g. %1$s</string>
+    <string name="profile_tag_hint_default">Keke code / union tag on the keke</string>
+    <string name="profile_tag_required_note">%1$s keke carry a union tag — enter the number painted on your keke.</string>
+    <string name="profile_tag_optional_note">%1$s has no published tag format — enter your union tag number if your keke has one.</string>
+    <string name="profile_tag_kano_note">Kano keke use the KNT plate series — no separate tag needed.</string>
+    <string name="profile_not_verified_note">KekeNow only checks the shape of these numbers. They are not verified against government records.</string>
+    <string name="profile_save">Save profile</string>
+    <string name="profile_need_name">Enter your name</string>
+    <string name="profile_need_phone">Enter your phone number</string>
+    <string name="profile_need_plate">Enter your FRSC plate number</string>
+    <string name="profile_bad_plate">That plate does not look right. It should look like %1$s</string>
+    <string name="profile_need_tag">Enter your keke code / union tag number</string>
+    <string name="profile_edit">Edit</string>
+    <string name="profile_complete">Complete profile</string>
+    <string name="rider_profile_hint">Passengers need to see who you are. Add your photo, name, phone, state, plate number and keke code.</string>
+    <string name="rider_profile_missing">Add your rider profile (photo, name, phone, plate number, keke code) so passengers can see who you are.</string>
+
+    <!-- Accepted rider card (passenger waiting screen) -->
+    <string name="rider_card_title">Your rider</string>
+    <string name="rider_call">Call rider</string>
+    <string name="rider_plate_label">Plate: %1$s</string>
+    <string name="rider_tag_label">Keke code: %1$s</string>
+    <string name="rider_check_note">Check the plate and keke code on the keke before you board.</string>
+    <string name="rider_accepted_with_name">Your rider %1$s is on the way. Keke code %2$s.</string>
+</resources>

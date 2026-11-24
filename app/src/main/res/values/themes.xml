@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Framework-only theme: this machine builds offline against a local
+         Maven repo with no AndroidX/Material artifacts, so the theme must
+         not extend MaterialComponents or AppCompat. -->
+    <style name="Theme.KekeNow" parent="android:Theme.Material.NoActionBar">
+        <item name="android:colorPrimary">@color/keke_green</item>
+        <item name="android:colorPrimaryDark">@color/keke_green_dark</item>
+        <item name="android:colorAccent">@color/keke_yellow</item>
+        <item name="android:colorBackground">@color/surface_light</item>
+        <item name="android:windowBackground">@color/surface_light</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/keke_green_dark</item>
+        <item name="android:navigationBarColor">@color/surface_light</item>
+    </style>
+
+    <style name="Widget.KekeNow.Button" parent="android:Widget.Material.Button">
+        <item name="android:textAllCaps">false</item>
+    </style>
+</resources>
